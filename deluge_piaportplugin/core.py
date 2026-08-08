@@ -20,8 +20,8 @@ from twisted.internet.task import LoopingCall
 log = logging.getLogger(__name__)
 
 DEFAULT_PREFS = {
-    'port_file': '/pia/forwarded_port',
-    'poll_interval': 300
+    'port_file': '/pia/port.dat',
+    'poll_interval': 120
 }
 
 
