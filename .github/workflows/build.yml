@@ -1,29 +1,26 @@
 name: Build Deluge Plugin
 
-# This is what's missing
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch: # Allows you to manually run it from the GitHub Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-- uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # 1. Build the egg file
       - name: Build plugin
         run: python setup.py bdist_egg
 
-      # 2. Upload the artifact so you can download it from the GitHub Actions tab
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
